@@ -9,11 +9,13 @@ alias cdlance='cd ~/_envato/envato-sites/sites-theme-lance'
 alias cdtooling='cd ~/_envato/envato-sites/sites-theme-tooling'
 alias envato-sites='bin/envato-sites'
 alias newalias='open -a "Sublime Text 2" ~/bashprofile/lance_bashprofile.sh'
+alias bashprofile='open -a "Sublime Text 2" ~/.bash_profile'
 alias check='git checkout'
 alias testalltooling='../scripts/test-all-tooling.sh true'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
 alias cdreact='cd ~/ruby/react-tutorial-master/'
+alias cdsites='cd ~/_envato/envato-sites/sites'
 
 # Theme repo aliases
 alias cdabbie='cd ~/_envato/envato-sites/sites-theme-abbie'
