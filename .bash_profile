@@ -1,4 +1,4 @@
-#!/bin/bash
+
 #  ---------------------------------------------------------------------------
 #
 #  Description:  This file holds all my BASH configurations and aliases
@@ -13,7 +13,7 @@
 #  7.   System Operations & Information
 #  8.   Web Development
 #  9.   Reminders & Notes
-#  10.  Lance's Stuff
+#  10.  Envato Stuff
 #
 #  ---------------------------------------------------------------------------
 
@@ -25,6 +25,8 @@
 #   ------------------------------------------------------------
 #    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
 #    export PS2="| => "
+
+GIT_PS1_SHOWDIRTYSTATE=true
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -346,13 +348,23 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 
 # This extends the wonderful natelandau .bash_profile found here: # https://gist.github.com/natelandau/10654137
 
-# Lance's Aliases
+# Game dev Aliases
+gamesdir='games'
+alias cdgames='cd ~/$gamesdir/'
+alias cdmathboggle='cd ~/$gamesdir/math-boggle-2/'
+
+# Envato Aliases
+themesdir='envato/sites-themes'
+sitesdir='envato/sites'
+
 alias master='git checkout master'
 alias refresh='. ~/.bash_profile'
-alias cdenv='cd ~/envato-sites/'
-alias cdbase='cd ~/envato-sites/sites-theme-base'
-alias cdlance='cd ~/envato-sites/sites-theme-lance'
-alias cdtooling='cd ~/envato-sites/sites-theme-tooling'
+alias cdthemes='cd ~/$themesdir/'
+alias cdenv='cd ~/envato/'
+alias cdsites='cd ~/$sitesdir/'
+alias cdbase='cd ~/$themesdir/sites-theme-base'
+alias cdlance='cd ~/$themesdir/sites-theme-lance'
+alias cdtooling='cd ~/envato/sites-theme-tooling'
 alias envato-sites='bin/envato-sites'
 alias bashprofile='open -a "Sublime Text" ~/.bash_profile'
 alias check='git checkout'
@@ -360,40 +372,61 @@ alias testalltooling='../scripts/test-all-tooling.sh true'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
 alias cdreact='cd ~/ruby/react-tutorial-master/'
-alias cdsites='cd ~/envato-sites/sites'
+alias pull='git pull'
+alias branch='git branch'
 
 # Theme repo aliases
-alias cdabbie='cd ~/envato-sites/sites-theme-abbie'
-alias cdavigni='cd ~/envato-sites/sites-theme-avigni'
-alias cdaddison='cd ~/envato-sites/sites-theme-addison'
-alias cdbattle='cd ~/envato-sites/sites-theme-battle'
-alias cdcentral='cd ~/envato-sites/sites-theme-central'
-alias cddocs='cd ~/envato-sites/sites-author-docs'
-alias cdhalsted='cd ~/envato-sites/sites-theme-halsted'
-alias cdhidea='cd ~/envato-sites/sites-theme-hidea'
-alias cdlambda='cd ~/envato-sites/sites-theme-lambda'
-alias cdcharity='cd ~/envato-sites/sites-theme-lambda-charity'
-alias cdlandy='cd ~/envato-sites/sites-theme-landy'
-alias cdlark='cd ~/envato-sites/sites-theme-lark'
-alias cdmoda='cd ~/envato-sites/sites-theme-moda'
-alias cdmystyle='cd ~/envato-sites/sites-theme-mystyle'
-alias cdnebula='cd ~/envato-sites/sites-theme-nebula'
-alias cdnylon='cd ~/envato-sites/sites-theme-nylon'
-alias cdpadre='cd ~/envato-sites/sites-theme-padre'
-alias cdrequirements='cd ~/envato-sites/sites-theme-requirements'
-alias cdskoty='cd ~/envato-sites/sites-theme-skoty'
-alias cdpartner='cd ~/envato-sites/sites-theme-partner'
-alias cdquist='cd ~/envato-sites/sites-theme-quist'
-alias cdsmallbiz='cd ~/envato-sites/sites-theme-smallbiz'
-alias cdsmarter='cd ~/envato-sites/sites-theme-smarter'
-alias cdseok='cd ~/envato-sites/sites-theme-seok'
-alias cdsora='cd ~/envato-sites/sites-theme-sora'
-alias cdyouplay='cd ~/envato-sites/sites-theme-youplay'
-alias cdteam='cd ~/envato-sites/team-timezone-tracker'
+alias cdabbie='cd ~/$themesdir/sites-theme-abbie'
+alias cdavigni='cd ~/$themesdir/sites-theme-avigni'
+alias cdaddison='cd ~/$themesdir/sites-theme-addison'
+alias cdambassador='cd ~/$themesdir/sites-theme-ambassador'
+alias cdbasil='cd ~/$themesdir/sites-theme-basil'
+alias cdcentral='cd ~/$themesdir/sites-theme-central'
+alias cddocs='cd ~/envato/sites-author-docs'
+alias cdhalsted='cd ~/$themesdir/sites-theme-halsted'
+alias cdhidea='cd ~/$themesdir/sites-theme-hidea'
+alias cdlambda='cd ~/$themesdir/sites-theme-lambda'
+alias cdcharity='cd ~/$themesdir/sites-theme-lambda-charity'
+alias cdlandy='cd ~/$themesdir/sites-theme-landy'
+alias cdlark='cd ~/$themesdir/sites-theme-lark'
+alias cdlitte='cd ~/$themesdir/sites-theme-litte'
+alias cdmoda='cd ~/$themesdir/sites-theme-moda'
+alias cdmystyle='cd ~/$themesdir/sites-theme-mystyle'
+alias cdnebula='cd ~/$themesdir/sites-theme-nebula'
+alias cdnylon='cd ~/$themesdir/sites-theme-nylon'
+alias cdpadre='cd ~/$themesdir/sites-theme-padre'
+alias cdrequirements='cd ~/$themesdir/sites-theme-requirements'
+alias cdskoty='cd ~/$themesdir/sites-theme-skoty'
+alias cdpartner='cd ~/$themesdir/sites-theme-partner'
+alias cdquist='cd ~/$themesdir/sites-theme-quist'
+alias cdsmallbiz='cd ~/$themesdir/sites-theme-smallbiz'
+alias cdsmarter='cd ~/$themesdir/sites-theme-smarter'
+alias cdseok='cd ~/$themesdir/sites-theme-seok'
+alias cdsora='cd ~/$themesdir/sites-theme-sora'
+alias cdyouplay='cd ~/$themesdir/sites-theme-youplay'
+alias cdteam='cd ~/$themesdir/team-timezone-tracker'
 
 # Lance's functions
-estest () { bin/envato-sites test ../sites-theme-"$1"; }
-esstart () { bin/envato-sites start ../sites-theme-"$1"; }
+estest () { bin/envato-sites test ~/$themesdir/sites-theme-"$1"; }
+esstart () { bin/envato-sites start ~/$themesdir/sites-theme-"$1"; }
 checkb () { git checkout -b "$1"; }
 addcompush () { git add .; git commit -m "$1"; git push; }
+startsites () { bundle exec foreman start -m all=1,styleguide=0; }
+importtheme () { ./script/themes/import_to_dev "$1"; }
 
+# Working with author repos
+
+# // pull down current PR
+# git remote add author git@github.com:DariDesignagent/sites-theme-darinka.git
+# git fetch author
+# git checkout --track -b local-repo author/master
+
+# // find merge conflicts
+# git merge master
+
+# // push changes to fork
+# git push author local-repo:master
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
