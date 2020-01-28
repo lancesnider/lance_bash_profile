@@ -63,9 +63,16 @@ fi
 
 #   Set Paths
 #   ------------------------------------------------------------
-    export PATH="/Users/lancesnider/pear/bin:$HOME/.phpenv/bin:$PATH/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH:$HOME/.composer/vendor/bin:/Applications/VMware\ Fusion.app/Contents/Library/"
+    export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
  #   export JAVA_HOME="$(/usr/libexec/java_home)"
-    export ANDROID_HOME="$(echo ~/Library/Android/sdk/)"
+    export PATH=/Users/lancesnider/Library/Android/sdk/platform-tools:$PATH
+    export PATH=$PATH:/Users/lancesnider/development/flutter/bin
+
+    export ANDROID_HOME=/Users/lancesnider/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/emulator
+    export PATH=$PATH:$ANDROID_HOME/tools
+    export PATH=$PATH:$ANDROID_HOME/tools/bin
+    export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -104,7 +111,6 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
@@ -183,7 +189,7 @@ EOT
 
 
 #      Set up Bash history for extra length and timestamps...
-export HISTSIZE=100000
+# export HISTSIZE=1000000
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 #   ---------------------------
@@ -241,7 +247,7 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 #   6.  NETWORKING
 #   ---------------------------
 
-alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+alias ipaddress='ifconfig |grep inet'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
 alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
@@ -352,81 +358,40 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 gamesdir='games'
 alias cdgames='cd ~/$gamesdir/'
 alias cdmathboggle='cd ~/$gamesdir/math-boggle-2/'
+alias cdmathnative='cd ~/$gamesdir/MathBoggle/'
 
-# Envato Aliases
-themesdir='envato/sites-themes'
-sitesdir='envato/sites'
+# Scripts aliases
+alias cdmanagegithubrepos='cd ~/lances-scripts/manage-github-repos/'
 
+# Freelance Aliases
+alias cdbuilt='cd ~/dev/builtapp'
+alias cdfashion='cd ~/dev/FashionphileApp'
+alias ios8='react-native run-ios --simulator="iPhone 8"'
+alias iosx='react-native run-ios --simulator="iPhone X"'
+alias ios11='react-native run-ios --simulator="iPhone 11"'
+
+# other
 alias master='git checkout master'
-alias refresh='. ~/.bash_profile'
-alias cdthemes='cd ~/$themesdir/'
-alias cdenv='cd ~/envato/'
-alias cdsites='cd ~/$sitesdir/'
-alias cdbase='cd ~/$themesdir/sites-theme-base'
-alias cdlance='cd ~/$themesdir/sites-theme-lance'
-alias cdtooling='cd ~/envato/sites-theme-tooling'
-alias envato-sites='bin/envato-sites'
-alias bashprofile='open -a "Sublime Text" ~/.bash_profile'
-alias check='git checkout'
-alias testalltooling='../scripts/test-all-tooling.sh true'
-alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
-alias gl='glog --graph'
-alias cdreact='cd ~/ruby/react-tutorial-master/'
-alias pull='git pull'
-alias branch='git branch'
+alias refresh='source ~/.bash_profile'
+alias bashprofile='open -e ~/.bash_profile'
 
-# Theme repo aliases
-alias cdabbie='cd ~/$themesdir/sites-theme-abbie'
-alias cdavigni='cd ~/$themesdir/sites-theme-avigni'
-alias cdaddison='cd ~/$themesdir/sites-theme-addison'
-alias cdambassador='cd ~/$themesdir/sites-theme-ambassador'
-alias cdbasil='cd ~/$themesdir/sites-theme-basil'
-alias cdcentral='cd ~/$themesdir/sites-theme-central'
-alias cddocs='cd ~/envato/sites-author-docs'
-alias cdhalsted='cd ~/$themesdir/sites-theme-halsted'
-alias cdhidea='cd ~/$themesdir/sites-theme-hidea'
-alias cdlambda='cd ~/$themesdir/sites-theme-lambda'
-alias cdcharity='cd ~/$themesdir/sites-theme-lambda-charity'
-alias cdlandy='cd ~/$themesdir/sites-theme-landy'
-alias cdlark='cd ~/$themesdir/sites-theme-lark'
-alias cdlitte='cd ~/$themesdir/sites-theme-litte'
-alias cdmoda='cd ~/$themesdir/sites-theme-moda'
-alias cdmystyle='cd ~/$themesdir/sites-theme-mystyle'
-alias cdnebula='cd ~/$themesdir/sites-theme-nebula'
-alias cdnylon='cd ~/$themesdir/sites-theme-nylon'
-alias cdpadre='cd ~/$themesdir/sites-theme-padre'
-alias cdrequirements='cd ~/$themesdir/sites-theme-requirements'
-alias cdskoty='cd ~/$themesdir/sites-theme-skoty'
-alias cdpartner='cd ~/$themesdir/sites-theme-partner'
-alias cdquist='cd ~/$themesdir/sites-theme-quist'
-alias cdsmallbiz='cd ~/$themesdir/sites-theme-smallbiz'
-alias cdsmarter='cd ~/$themesdir/sites-theme-smarter'
-alias cdseok='cd ~/$themesdir/sites-theme-seok'
-alias cdsora='cd ~/$themesdir/sites-theme-sora'
-alias cdyouplay='cd ~/$themesdir/sites-theme-youplay'
-alias cdteam='cd ~/$themesdir/team-timezone-tracker'
 
 # Lance's functions
-estest () { bin/envato-sites test ~/$themesdir/sites-theme-"$1"; }
-esstart () { bin/envato-sites start ~/$themesdir/sites-theme-"$1"; }
 checkb () { git checkout -b "$1"; }
 addcompush () { git add .; git commit -m "$1"; git push; }
-startsites () { bundle exec foreman start -m all=1,styleguide=0; }
-importtheme () { ./script/themes/import_to_dev "$1"; }
 
-# Working with author repos
 
-# // pull down current PR
-# git remote add author git@github.com:DariDesignagent/sites-theme-darinka.git
-# git fetch author
-# git checkout --track -b local-repo author/master
+# aws-vault exec sites-dev-import-theme env USE_GLOBAL_THEME_REQUIREMENTS=true script/themes/import_to_dev $THEME $THEME_BRANCH
 
-# // find merge conflicts
-# git merge master
 
-# // push changes to fork
-# git push author local-repo:master
-export PATH="$HOME/.rbenv/bin:$PATH"
+# export NVM_DIR="$HOME/.nvm"
 
-export NVM_DIR="$HOME/.nvm"
-  . "$(brew --prefix nvm)/nvm.sh"
+# . "$(brew --prefix nvm)/nvm.sh"
+eval "$(rbenv init -)"
+
+eval "$(nodenv init -)"
+
+# shit you should remember
+
+# Check the app's log
+# tail -f log/development.log
