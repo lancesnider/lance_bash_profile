@@ -1,3 +1,4 @@
+source ~/.profile
 
 #  ---------------------------------------------------------------------------
 #
@@ -362,18 +363,41 @@ alias cdmathnative='cd ~/$gamesdir/MathBoggle/'
 
 # Scripts aliases
 alias cdmanagegithubrepos='cd ~/lances-scripts/manage-github-repos/'
+alias lintfix='yarn lint --fix'
 
 # Freelance Aliases
+alias devtools='open "rndebugger://set-debugger-loc?host=localhost&port=8081"'
+
 alias cdbuilt='cd ~/dev/builtapp'
 alias cdfashion='cd ~/dev/FashionphileApp'
+alias cdhale='cd ~/dev/hale-center-theater/Craft-3.3.20.1'
+alias gitsort=' git branch --sort=-committerdate'
+alias reactnuke='rm -rf node_modules && yarn && bundle install && cd ios && rm -rf Pods && pod install && ..'
+
+alias ios5s='react-native run-ios --simulator="iPhone 5s"'
+alias ios6='react-native run-ios --simulator="iPhone 6"'
+alias ios6s='react-native run-ios --simulator="iPhone 6s"'
+alias iosse='react-native run-ios --simulator="iPhone SE"'
+alias ios7='react-native run-ios --simulator="iPhone 7"'
 alias ios8='react-native run-ios --simulator="iPhone 8"'
 alias iosx='react-native run-ios --simulator="iPhone X"'
+alias iosxs='react-native run-ios --simulator="iPhone Xs"'
+alias iosxsmax='react-native run-ios --simulator="iPhone Xs  Max"'
+alias iosxr='react-native run-ios --simulator="iPhone Xʀ"'
 alias ios11='react-native run-ios --simulator="iPhone 11"'
+alias ios12='react-native run-ios --simulator="iPhone 12"'
+alias ios12pro='react-native run-ios --simulator="iPhone 12 Pro"'
+alias ios12promax='react-native run-ios --simulator="iPhone 12 Pro Max"'
 
 # other
 alias master='git checkout master'
 alias refresh='source ~/.bash_profile'
 alias bashprofile='open -e ~/.bash_profile'
+
+alias fashsetup='docker-compose -f docker-compose-local.yml up -d && php artisan serve'
+alias fashredirect="echo 'no rdr inet proto tcp from 127.0.0.1 port 8000
+rdr inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8000
+' | sudo pfctl -ef -"
 
 
 # Lance's functions
@@ -394,4 +418,6 @@ eval "$(nodenv init -)"
 # shit you should remember
 
 # Check the app's log
-# tail -f log/development.log
+# tail -f log/development.logexport PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+# Terminal theme: Flat
